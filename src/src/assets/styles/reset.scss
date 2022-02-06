@@ -1,0 +1,22 @@
+@import './colors.scss';
+
+* {
+    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: $default-f-color;
+}
+
+html, body, #app, .gsn-app {
+    height: 100%;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: $default-f-color;
+}

@@ -1,0 +1,45 @@
+@import '@styles/colors.scss';
+
+.gsn-default-layout {
+    height: 100%;
+    .header {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        background-color: $primary-color;
+        box-shadow: 0 5px 5px $box-l-shadow;
+
+        .left-area {
+            .logo {
+                width: 20px;
+            }
+        }
+
+        .right-area {
+            display: flex;
+
+            .gsn-icon-button {
+                font-size: 25px;
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            font-size: 10px;
+            padding: 10px 25px;
+
+            svg {
+                font-size: 25px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
