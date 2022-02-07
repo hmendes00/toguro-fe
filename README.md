@@ -2,6 +2,7 @@
 
 This project contains the frontend for the main Toguro platform
 
+![Architecture](https://i.ibb.co/BBbZPg4/Untitled-Artwork-5.png)
 ## Requirements
 
 * Node 16
