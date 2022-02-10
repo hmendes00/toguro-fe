@@ -7,6 +7,9 @@ const CustomAppService = {
     return fakeApi.customApps.getMyCustomApps;
   },
   addScriptToHead(customApp: CustomApp) {
+    if (document.querySelector(`script[data-appid=${customApp.appId}]`)) {
+      return;
+    }
     const appScript = document.createElement('script');
     appScript.type = customApp.appUrl.endsWith('.ts') ? 'module' : 'text/javascript';
     appScript.setAttribute('src', customApp.appUrl);

@@ -29,7 +29,6 @@
   import { LOAD_CUSTOM_APPS } from '@/store/modules/app/actions';
   import { computed, onMounted } from 'vue';
   import { appStore, selfStore } from '@/store';
-  console.log(appStore.state);
 
   const isLoggedIn = computed(() => selfStore.getters['self/isLoggedIn']);
   const mainMenuCustomApps = computed(() =>

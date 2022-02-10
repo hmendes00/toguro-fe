@@ -14,8 +14,6 @@ const mutations: MutationTree<AppState> = {
     newCustomApps.forEach((app) => {
       state.customApps[app.appId] = app;
     });
-
-    console.log(state.customApps);
   }
 };
 
