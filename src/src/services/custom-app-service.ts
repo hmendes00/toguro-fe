@@ -11,7 +11,8 @@ const CustomAppService = {
       return;
     }
     const appScript = document.createElement('script');
-    appScript.type = customApp.appUrl.endsWith('.ts') ? 'module' : 'text/javascript';
+    appScript.type =
+      customApp.appUrl.endsWith('.ts') || customApp.appUrl.endsWith('.es.js') ? 'module' : 'text/javascript';
     appScript.setAttribute('src', customApp.appUrl);
     appScript.setAttribute('data-appid', customApp.appId);
     appScript.setAttribute('data-appName', customApp.appName);

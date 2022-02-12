@@ -6,8 +6,8 @@ export interface SelfState {
 
 const state: SelfState = {
   isLoggedIn: true,
-  username: 'GsnUser1',
-  email: 'gsnuser1@gmail.com'
+  username: 'TfeUser1',
+  email: 'tfeuser1@gmail.com'
 };
 
 export default state;

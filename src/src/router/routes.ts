@@ -1,11 +1,11 @@
-import GsnHomePage from '@pages/home/home.vue';
+import TfeHomePage from '@pages/home/home.vue';
 import CustomPageApp from '@pages/custom-page-app/custom-page-app.vue';
 
 const appRoutes = [
   {
     path: '/',
     name: 'Home',
-    component: GsnHomePage
+    component: TfeHomePage
   },
   {
     path: '/custom-page-app/:appId',

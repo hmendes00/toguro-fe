@@ -1,5 +1,5 @@
 <template>
-  <div class="gsn-icon-button">
+  <div class="tfe-icon-button">
     <div v-if="leftText">{{ leftText }}</div>
     <div class="icon"><slot></slot></div>
     <div v-if="rightText">{{ rightText }}</div>

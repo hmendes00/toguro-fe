@@ -1,16 +1,17 @@
 {
-    "customApps": {
-        "getMyCustomApps": [
-            { 
-                "appName": "toguro-assessment-app",
-                "appUrl": "http://localhost:3000/src/main.ts",
-                "developerEmail": "hmendes00@gmail.com",
-                "hasSupport": true,
-                "appVersion": "1",
-                "target": "menu",
-                "appType": "page",
-                "label": "Assessments",
-                "appId": "d95b4733-4162-4791-8674-b83b56cef93e"
-            }]
-    }
+  "customApps": {
+    "getMyCustomApps": [
+      {
+        "appName": "toguro-assessment-app",
+        "appUrl": "http://localhost:3000/src/main.ts",
+        "developerEmail": "hmendes00@gmail.com",
+        "hasSupport": true,
+        "appVersion": "1",
+        "target": "menu",
+        "appType": "page",
+        "label": "Assessments",
+        "appId": "d95b4733-4162-4791-8674-b83b56cef93e"
+      }
+    ]
+  }
 }

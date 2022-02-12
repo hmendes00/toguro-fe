@@ -1,5 +1,5 @@
 <template>
-  <div class="gsn-login-page">
+  <div class="tfe-login-page">
     <h2>LOGIN PAGE...</h2>
   </div>
 </template>

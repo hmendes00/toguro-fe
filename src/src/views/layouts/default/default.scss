@@ -1,6 +1,6 @@
 @import '@styles/colors.scss';
 
-.gsn-default-layout {
+.tfe-default-layout {
   height: 100%;
   .header {
     padding: 10px;
@@ -18,7 +18,7 @@
     .right-area {
       display: flex;
 
-      .gsn-icon-button {
+      .tfe-icon-button {
         font-size: 25px;
         color: $secondary-color;
       }

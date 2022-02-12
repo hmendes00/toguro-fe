@@ -1,5 +1,5 @@
 <template>
-  <div class="gsn-default-layout">
+  <div class="tfe-default-layout">
     <div class="header">
       <div class="left-area">
         <img class="logo" src="@assets/logo.png" />
@@ -19,13 +19,13 @@
         >{{ menuApp.label }}</router-link
       >
     </div>
-    <!-- <gsn-drawer-menu /> -->
+    <!-- <tfe-drawer-menu /> -->
   </div>
 </template>
 
 <style lang="scss" src="./default.scss" scoped></style>
 <script setup lang="ts">
-  // import GsnDrawerMenu from '@containers/drawer-menu/drawer-menu.vue';
+  // import TfeDrawerMenu from '@containers/drawer-menu/drawer-menu.vue';
   import { LOAD_CUSTOM_APPS } from '@/store/modules/app/actions';
   import { computed, onMounted } from 'vue';
   import { appStore, selfStore } from '@/store';

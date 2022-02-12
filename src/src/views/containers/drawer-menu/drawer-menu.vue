@@ -1,5 +1,5 @@
 <template>
-  <div class="gsn-drawer-menu" :class="{ active: drawerState === DrawerStateType.OPENED }">
+  <div class="tfe-drawer-menu" :class="{ active: drawerState === DrawerStateType.OPENED }">
     <div class="header">a</div>
     <div class="profile">
       b

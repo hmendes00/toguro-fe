@@ -1,5 +1,5 @@
 <template>
-  <div class="gsn-sign-up-page">
+  <div class="tfe-sign-up-page">
     <h2>SIGN UP PAGE...</h2>
   </div>
 </template>
