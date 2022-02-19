@@ -2,9 +2,6 @@ import typescript from '@rollup/plugin-typescript';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import inject from '@rollup/plugin-inject';
-import builtins from 'rollup-plugin-polyfill-node';
-import NodeModulesPolyfills from '@esbuild-plugins/node-modules-polyfill';
 
 const resolvePath = (file: string) => resolve(__dirname, file);
 
@@ -16,9 +13,6 @@ export default defineConfig(({ mode }) => {
       fs: {
         strict: false
       }
-    },
-    define: {
-      global: 'globalThis'
     },
     plugins: [
       vue({
@@ -41,17 +35,12 @@ export default defineConfig(({ mode }) => {
         allowSyntheticDefaultImports: true,
         sourceMap: mode !== 'production',
         inlineSources: mode !== 'production'
-      }),
-      insertBuiltinsPlugin,
-      NodeModulesPolyfills
+      })
     ],
     build: {
       rollupOptions: {
         output: {
-          sourcemap: mode !== 'production',
-          rollupOptions: {
-            plugins: [inject({ Buffer: ['buffer', 'Buffer'] })]
-          }
+          sourcemap: mode !== 'production'
         }
       }
     },
@@ -83,16 +72,3 @@ export default defineConfig(({ mode }) => {
     }
   };
 });
-
-function insertBuiltinsPlugin() {
-  return {
-    name: 'my-project:insert-builtins-plugin',
-    options(options) {
-      const plugins = options.plugins;
-      const idx = plugins.findIndex((plugin) => plugin.name === 'node-resolve');
-      // @ts-ignore
-      plugins.splice(idx, 0, { ...builtins({ crypto: true, buffer: true }), name: 'rollup-plugin-node-builtins' });
-      return options;
-    }
-  };
-}

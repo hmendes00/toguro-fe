@@ -12,18 +12,6 @@
         "label": "Just A Menu",
         "appId": "d95b4733-4162-4791-8674-b83b56cef93e",
         "requiredGlobally": false
-      },
-      {
-        "appName": "toguro-login-mx-app",
-        "appUrl": "http://localhost:3000/src/main.ts",
-        "developerEmail": "hmendes00@gmail.com",
-        "hasSupport": true,
-        "appVersion": "1",
-        "target": "route",
-        "appType": "login",
-        "label": "Login",
-        "requiredGlobally": true,
-        "appId": "70eb8706-b021-47ed-908c-9eefd0863a30"
       }
     ]
   }

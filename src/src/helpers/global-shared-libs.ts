@@ -9,7 +9,6 @@ window.vue3 = vue3;
 /**
  * If you are using login-mx-app (or you want to use matrix-js-sdk) in this project,
  * make sure you have the imports bellow uncommented
- */
 
 import * as Buffer from 'buffer';
 // @ts-ignore
@@ -21,3 +20,5 @@ window.Buffer = window.Buffer || Buffer.Buffer;
 import * as MxJsSdk from 'matrix-js-sdk';
 //@ts-ignore;
 window.mxJsSdk = MxJsSdk;
+
+ */
