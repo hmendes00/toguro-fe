@@ -1,10 +1,7 @@
-import { AppState, CustomApp, DrawerState } from './state';
+import { AppState, CustomApp } from './state';
 import { GetterTree } from 'vuex';
 
 const getters: GetterTree<AppState, {}> = {
-  drawerState(state: AppState): DrawerState {
-    return state.drawerState;
-  },
   menuCustomApps(state: AppState): CustomApp[] {
     const menuApps = Object.values(state.customApps).filter((app) => app.target === 'menu');
     return menuApps;

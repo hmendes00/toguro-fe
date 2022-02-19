@@ -3,14 +3,27 @@
     "getMyCustomApps": [
       {
         "appName": "toguro-assessment-app",
-        "appUrl": "http://localhost:3000/src/main.ts",
+        "appUrl": "https://d3sok1tixll9a6.cloudfront.net/main.es.js",
         "developerEmail": "hmendes00@gmail.com",
         "hasSupport": true,
         "appVersion": "1",
         "target": "menu",
         "appType": "page",
         "label": "Assessments",
-        "appId": "d95b4733-4162-4791-8674-b83b56cef93e"
+        "appId": "d95b4733-4162-4791-8674-b83b56cef93e",
+        "requiredGlobally": false
+      },
+      {
+        "appName": "toguro-login-app",
+        "appUrl": "http://localhost:8080/test.es.js",
+        "developerEmail": "hmendes00@gmail.com",
+        "hasSupport": true,
+        "appVersion": "1",
+        "target": "route",
+        "appType": "login",
+        "label": "Login",
+        "requiredGlobally": true,
+        "appId": "70eb8706-b021-47ed-908c-9eefd0863a30"
       }
     ]
   }

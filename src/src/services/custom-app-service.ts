@@ -7,7 +7,7 @@ const CustomAppService = {
     return fakeApi.customApps.getMyCustomApps;
   },
   addScriptToHead(customApp: CustomApp) {
-    if (document.querySelector(`script[data-appid=${customApp.appId}]`)) {
+    if (document.querySelector(`script[data-appid='${customApp.appId}']`)) {
       return;
     }
     const appScript = document.createElement('script');
@@ -17,6 +17,11 @@ const CustomAppService = {
     appScript.setAttribute('data-appid', customApp.appId);
     appScript.setAttribute('data-appName', customApp.appName);
     document.head.appendChild(appScript);
+  },
+  addCustomAppTag(el: HTMLElement, customApp: CustomApp) {
+    if (el) {
+      el.innerHTML = `<${customApp.appName} />`;
+    }
   }
 };
 

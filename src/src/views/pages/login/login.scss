@@ -1,0 +1,6 @@
+@import '@styles/variables.scss';
+
+.tfe-login-page {
+  min-height: calc(100vh - $header-height);
+  position: relative;
+}

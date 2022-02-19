@@ -10,6 +10,9 @@ const getters: GetterTree<SelfState, {}> = {
   },
   username(state: SelfState): string {
     return state.username;
+  },
+  appLogoutFunction(state: SelfState): Function {
+    return state.appLogoutFunction!;
   }
 };
 

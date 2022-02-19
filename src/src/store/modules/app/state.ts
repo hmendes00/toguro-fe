@@ -1,12 +1,5 @@
-export enum DrawerState {
-  OPENED,
-  OPENING,
-  CLOSED
-}
-
 export interface AppState {
   appLoaded: boolean;
-  drawerState: DrawerState;
   customApps: Record<string, CustomApp>;
 }
 
@@ -20,11 +13,11 @@ export type CustomApp = {
   appType: string;
   label: string;
   hasSupport: boolean;
+  requiredGlobally: boolean;
 };
 
 const state: AppState = {
   appLoaded: false,
-  drawerState: DrawerState.CLOSED,
   customApps: {}
 };
 

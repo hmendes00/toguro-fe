@@ -4,18 +4,25 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
   import TfeDefaultLayout from '@layouts/default/default.vue';
+  import { registerGlobalListeners, removeGlobalListeners } from '@/helpers/global-listeners';
+  import { onMounted, onUnmounted } from 'vue';
 
-  export default {
-    components: { TfeDefaultLayout }
-  };
+  onMounted(() => {
+    registerGlobalListeners();
+  });
+
+  onUnmounted(() => {
+    removeGlobalListeners();
+  });
 </script>
 
 <style lang="scss">
   @import '@styles/reset.scss';
 
   .tfe-app {
-    // font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', Helvetica, Arial, sans-serif;
+    font-weight: 300;
   }
 </style>
