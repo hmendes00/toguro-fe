@@ -3,42 +3,45 @@
 This project contains the frontend for the main Toguro platform
 
 ![Architecture](https://i.ibb.co/BBbZPg4/Untitled-Artwork-5.png)
+
 ## Requirements
 
-* Node 16
-* NVM
+- Node 16
+- NVM
 
->** Note: ** 
-NVM might not exist for Windows so feel free to use any Node.JS Version Manager as long as you are using the Node 16 version
-
+> ** Note: **
+> NVM might not exist for Windows so feel free to use any Node.JS Version Manager as long as you are using the Node 16 version
 
 if you are using node globally and you don't have a Node.JS Version Manager, make sure you install one to avoid upgrading or downgrading your global node version.
 
 To install NVM
+
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | NVM_DIR=/usr/local/nvm bash
 ```
 
-
-
 ## How to install
 
-First make sure you are inside of *SRC* folder (and not STACK folder)
+First make sure you are inside of _SRC_ folder (and not STACK folder)
 
 Then run the following command to enforce the correct NodeJS version for the project:
+
 ```bash
 nvm use
 ```
+
 Then install the dependencies:
+
 ```bash
 npm install
 ```
 
 ## How to run
 
-First make sure you are inside of *SRC* folder (and not STACK folder)
+First make sure you are inside of _SRC_ folder (and not STACK folder)
 
 Then run the following command
+
 ```bash
 npm run dev
 ```
@@ -49,6 +52,7 @@ You will see a file called fake-api.json.
 You should essentially change the values according to how you named your custom app and what was the generated appid.
 
 E.G:
+
 ```
 "appName": "toguro-assessment-app",
 "appUrl": "http://localhost:3000/src/main.ts",
@@ -75,6 +79,11 @@ My idea here is to have a base website where people can create any types of webs
 ## How to test
 
 > http://localhost:8080/
+
+## Global Event Listeners
+
+Should be used by login apps so you can know when a user is logged in or not
+`toguro-events:login-updated`
 
 ## How to deploy
 
