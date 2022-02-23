@@ -12,9 +12,10 @@ const actions: ActionTree<SelfState, {}> = {
     await SetClient(payload.accessToken);
     commit(SET_LOGGED_IN, payload);
   },
-  [SET_LOGOUT]({ commit, getters, dispatch }: ActionContext<SelfState, {}>): void {
-    getters.appLogoutFunction();
+  async [SET_LOGOUT]({ commit, getters, dispatch }: ActionContext<SelfState, {}>): Promise<void> {
+    await getters.appLogoutFunction();
     commit(SET_LOGGED_IN, { isLoggedIn: false });
+    location.href = '/login';
   }
   // [SET_USER_BASIC_INFO]({ commit }: ActionContext<SelfState, {}>, userBasicInfo: User): void {
   //   commit(SET_USER_BASIC_INFO, { isLoggedIn: false });

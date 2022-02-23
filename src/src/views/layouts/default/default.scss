@@ -27,6 +27,7 @@
         font-weight: bold;
         margin-left: 10px;
         width: 110px;
+        font-size: 18px;
       }
 
       .main-search-area {
@@ -75,15 +76,15 @@
       }
     }
 
-    a {
-      color: white;
-      font-weight: 500;
-      margin-right: 20px;
-    }
-
     .right-area {
       display: flex;
       align-items: center;
+
+      a {
+        color: white;
+        font-weight: 500;
+        margin-right: 20px;
+      }
 
       .avatar-area {
         position: relative;

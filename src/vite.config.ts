@@ -5,6 +5,7 @@ import { defineConfig } from 'vite';
 import inject from '@rollup/plugin-inject';
 import builtins from 'rollup-plugin-polyfill-node';
 import NodeModulesPolyfills from '@esbuild-plugins/node-modules-polyfill';
+import pluginRewriteAll from 'vite-plugin-rewrite-all';
 
 const resolvePath = (file: string) => resolve(__dirname, file);
 
@@ -21,6 +22,7 @@ export default defineConfig(({ mode }) => {
       global: 'globalThis'
     },
     plugins: [
+      pluginRewriteAll(),
       vue({
         script: {
           refSugar: true

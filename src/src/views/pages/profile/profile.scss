@@ -31,16 +31,13 @@
         bottom: -30px;
         left: 30px;
         cursor: default;
-
-        ::v-deep(.n-avatar__text) {
-          font-size: 30px;
-        }
       }
     }
 
     .basic-info {
       background-color: white;
       padding: $default-padding;
+      margin-top: 10px;
     }
 
     .main-content {
@@ -62,33 +59,20 @@
       background-color: white;
       border: 1px solid $border-color;
       margin-top: 20px;
-    }
 
-    .skill-tags {
-      display: flex;
-      margin-top: 0;
-      height: 150px;
-
-      .tags {
+      &.first-block {
         display: flex;
-        flex-wrap: wrap;
-
-        .n-tag {
-          flex: 1;
-          max-width: max-content;
-          margin-left: 5px;
-          margin-bottom: 5px;
-          cursor: pointer;
-        }
+        margin-top: 0;
+        height: 150px;
       }
-    }
 
-    .latest-assessments-area {
-      height: 160px;
-    }
+      &.second-block {
+        height: 160px;
+      }
 
-    .portfolio-area {
-      height: 120px;
+      &.third-block {
+        height: 120px;
+      }
     }
   }
 }

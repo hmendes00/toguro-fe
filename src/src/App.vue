@@ -1,6 +1,6 @@
 <template>
   <div class="tfe-app">
-    <tfe-default-layout v-if="isLoggedIn || router.currentRoute.value.name == 'login'" />
+    <tfe-default-layout v-if="isLoggedIn || router.currentRoute.value.name === 'login'" />
     <n-skeleton v-else height="52px" />
   </div>
 </template>
@@ -14,8 +14,14 @@
   import router from './router';
   import CustomAppService from './services/custom-app-service';
   import { LOAD_CUSTOM_APPS } from './store/modules/app/actions';
+  import { getUserId } from './helpers/matrix';
 
   const isLoggedIn = computed<boolean>(() => selfStore.getters['isLoggedIn']);
+
+  const userId = getUserId();
+  if (!userId && !isLoggedIn.value && router.currentRoute.value.name !== 'login') {
+    router.push('/login');
+  }
 
   onMounted(() => {
     registerGlobalListeners();

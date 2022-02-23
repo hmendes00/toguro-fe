@@ -3,14 +3,16 @@
     <div class="header">
       <div class="left-area">
         <img class="logo" src="@assets/logo.png" />
-        <h3 class="logo-name">Cached-In</h3>
+        <router-link class="logo-name" to="/">My Website</router-link>
+
         <div class="main-search-area" v-click-outside="() => (hideSearch = true)">
           <n-input
+            v-if="isLoggedIn"
             v-model:value="mainSearchInput"
             @update-value="onMainSearch"
             @focus="() => (hideSearch = !searchUsersResult.length)"
             :loading="isSearching"
-            placeholder="Try: Javascript"
+            placeholder="Try: Daniel"
           >
             <template #prefix>
               <n-icon :component="Search" />
@@ -27,13 +29,16 @@
                   color="white"
                   :size="52"
                   :src="GetMxImage(userFound.avatar_url)"
+                  @click="goToProfile(userFound.user_id)"
                 ></n-avatar>
 
                 <span class="displayname">{{ userFound.display_name }}</span>
               </div>
             </div>
             <template #footer>
-              <h3>Challenges</h3>
+              <h3>Other stuff</h3>
+              <p>This thing</p>
+              <p>That thing</p>
             </template>
           </n-card>
         </div>
@@ -68,7 +73,7 @@
                   </div>
                 </div>
                 <div class="badges">
-                  <n-badge :value="10" :max="15" title="Assessments taken" type="success">
+                  <n-badge :value="10" :max="15" title="Activity" type="success">
                     <n-icon :component="CheckmarkDoneCircle" color="#777777" size="24" />
                   </n-badge>
                   <n-badge :value="16" :max="15" title="Profile Views" type="success">
@@ -119,21 +124,32 @@
     isSearching = ref(false),
     hideSearch = ref(false),
     shouldDisplayContentOverlay = ref(false);
-  const mainSearchInput = ref('');
+  const mainSearchInput = ref(''),
+    displayName = ref(''),
+    userName = ref(''),
+    myAvatarUrl = ref('');
 
-  const displayName = ref(GetDisplayName()),
-    userName = ref(GetUsername()),
-    myAvatarUrl = ref(GetMyAvatarUrl());
+  if (isLoggedIn.value) {
+    displayName.value = GetDisplayName();
+    userName.value = GetUsername();
+    myAvatarUrl.value = GetMyAvatarUrl();
+  }
 
   provide('addToSearch', (term: string) => {
     mainSearchInput.value = term;
     onMainSearch(mainSearchInput.value);
   });
 
+  watch(isLoggedIn, (value) => {
+    displayName.value = GetDisplayName();
+    userName.value = GetUsername();
+    myAvatarUrl.value = GetMyAvatarUrl();
+  });
+
   const searchUsersResult = ref<Array<UserSearched>>([]);
 
   const goToProfile = (userId: string) => {
-    return router.push({ name: 'profile', params: { userId } });
+    return router.push({ name: 'profile', params: { userId }, force: true });
   };
 
   const displaySearchResults = computed(() => {
@@ -144,8 +160,7 @@
 
   const onMainSearch = useDebounceFn(async (input: string) => {
     isSearching.value = true;
-    const result = await SearchUsers(input);
-    searchUsersResult.value = result?.results || [];
+    searchUsersResult.value = await SearchUsers(input);
     hideSearch.value = !searchUsersResult.value.length;
     isSearching.value = false;
   }, 500);

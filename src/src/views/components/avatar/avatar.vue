@@ -8,6 +8,10 @@
   .n-avatar {
     --n-color: #{$secondary} !important;
     cursor: pointer;
+
+    ::v-deep(.n-avatar__text) {
+      font-size: calc(var(--n-merged-size) / 2.5);
+    }
   }
 </style>
 

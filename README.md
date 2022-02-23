@@ -54,19 +54,19 @@ You should essentially change the values according to how you named your custom 
 E.G:
 
 ```
-"appName": "toguro-assessment-app",
+"appName": "toguro-test-app",
 "appUrl": "http://localhost:3000/src/main.ts",
 "developerEmail": "hmendes00@gmail.com",
 "hasSupport": true,
 "appVersion": "1",
 "target": "menu",
 "appType": "page",
-"label": "Assessments",
+"label": "My Test Label",
 "appId": "d95b4121-4222-4752-8674-b832k4cef93e"
 ```
 
 The app will be automatically injected and rendered inside of a `custom-page-app` route.
-It should also generate a menu with the label "Assessments" (As defined in the json).
+It should also generate a menu with the label "My Test Label" (As defined in the json).
 
 The idea is that your app will, at some point, come from a real api call.
 

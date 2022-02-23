@@ -11,7 +11,7 @@ const loginUpdated = async (event: any) => {
       logoutFunction: event.detail.logoutFunction || function () {}
     });
 
-    router.push(event.detail.redirectTo);
+    router.push({ path: event.detail.redirectTo === '/login' ? '/' : event.detail.redirectTo });
   }
 };
 

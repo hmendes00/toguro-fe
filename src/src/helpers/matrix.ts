@@ -1,3 +1,4 @@
+import { UserSearched } from './../models/matrix';
 import { UserDirectoryResponse } from '@/models/matrix';
 import { ConfigService } from '@/services/config.service';
 import { useFetch } from '@vueuse/core';
@@ -117,10 +118,6 @@ export const GetUserById = (userId: string): User => {
   return mxClient.getUser(userId);
 };
 
-export const GetUserAvatarUrl = (userId: string) => {
-  return GetMxImage(GetUserById(userId).avatarUrl) || '';
-};
-
 export const GetDisplayName = () => {
   return GetMyUser().rawDisplayName;
 };
@@ -157,10 +154,32 @@ export const SendImage = (roomId: string, mxUrl: string, info?: IImageInfo, text
   mxClient.sendImageMessage(roomId, mxUrl, info, text, callback);
 };
 
-export const SearchUsers = async (term: string): Promise<UserDirectoryResponse | undefined> => {
+export const SearchUsers = async (term: string, limit = 3): Promise<UserSearched[]> => {
   if (!term.length) {
-    return;
+    return [];
   }
-  // the limit here seems to be based on indexes. that means the when limit = 3, it will bring 4. (0,1,2,3);
-  return await mxClient.searchUserDirectory({ term, limit: 3 });
+
+  if (limit > 10) {
+    limit = 10;
+  }
+  try {
+    // the limit here seems to be based on indexes. that means the when limit = 3, it will bring 4. (0,1,2,3);
+    const searchResult = await mxClient.searchUserDirectory({ term: decodeURI(term), limit: 2 });
+    let results = new Array<UserSearched>();
+    if (!searchResult.results.length) {
+      const profile = await mxClient.getProfileInfo(term);
+      if (profile) {
+        results.push({
+          avatar_url: profile.avatar_url,
+          display_name: profile.displayname,
+          user_id: term
+        });
+      }
+    } else {
+      results = searchResult.results;
+    }
+    return results;
+  } catch {
+    return [];
+  }
 };

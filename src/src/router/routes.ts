@@ -1,8 +1,10 @@
+import { RouteRecordRaw } from 'vue-router';
+import { selfStore } from './../store/index';
 import { getClient, getUserId } from './../helpers/matrix';
 import TfeHomePage from '@pages/home/home.vue';
 import CustomPageApp from '@pages/custom-page-app/custom-page-app.vue';
 
-const appRoutes = [
+const appRoutes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
