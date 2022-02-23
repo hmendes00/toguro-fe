@@ -1,3 +1,4 @@
+import { getClient, getUserId } from './../helpers/matrix';
 import TfeHomePage from '@pages/home/home.vue';
 import CustomPageApp from '@pages/custom-page-app/custom-page-app.vue';
 
@@ -9,19 +10,19 @@ const appRoutes = [
   },
   {
     path: '/custom-page-app/:appId',
-    name: 'Custom Page App',
+    name: 'custom-page-app',
     component: CustomPageApp
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: () => import(/* webpackChunkName: "login" */ '@pages/login/login.vue')
   },
 
   {
-    path: '/sign-up',
-    name: 'Sign Up',
-    component: () => import(/* webpackChunkName: "sign-up" */ '@pages/sign-up/sign-up.vue')
+    path: '/profile/:userId?',
+    name: 'profile',
+    component: () => import(/* webpackChunkName: "profile" */ '@pages/profile/profile.vue')
   }
 ];
 

@@ -1,0 +1,94 @@
+@import '@styles/variables.scss';
+
+.tfe-profile-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .profile-area {
+    width: 800px;
+    border: 1px solid $border-color;
+    border-radius: $top-only-radius;
+    background-color: white;
+    margin-right: 20px;
+
+    .cover {
+      position: relative;
+      border-radius: $top-only-radius;
+      background: rgb(2, 0, 36);
+      background: radial-gradient(
+        circle,
+        rgba(2, 0, 36, 1) 29%,
+        rgba(40, 102, 110, 1) 71%,
+        rgba(221, 221, 221, 1) 80%,
+        rgba(40, 102, 110, 1) 100%
+      );
+      width: 100%;
+      height: 120px;
+
+      .n-avatar {
+        position: absolute;
+        bottom: -30px;
+        left: 30px;
+        cursor: default;
+
+        ::v-deep(.n-avatar__text) {
+          font-size: 30px;
+        }
+      }
+    }
+
+    .basic-info {
+      background-color: white;
+      padding: $default-padding;
+    }
+
+    .main-content {
+      border: 1px solid $border-color;
+      height: 100%;
+      margin-top: 40px;
+    }
+  }
+
+  .right-area {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin-left: 20px;
+
+    .right-block {
+      border-radius: $default-radius;
+      width: 100%;
+      background-color: white;
+      border: 1px solid $border-color;
+      margin-top: 20px;
+    }
+
+    .skill-tags {
+      display: flex;
+      margin-top: 0;
+      height: 150px;
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+
+        .n-tag {
+          flex: 1;
+          max-width: max-content;
+          margin-left: 5px;
+          margin-bottom: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .latest-assessments-area {
+      height: 160px;
+    }
+
+    .portfolio-area {
+      height: 120px;
+    }
+  }
+}

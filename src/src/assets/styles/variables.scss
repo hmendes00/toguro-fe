@@ -5,8 +5,16 @@ $bg-darker: #1e1e1e;
 $primary: #28666e;
 $primary-light: #7c9885;
 $primary-lighter: #9ebaa7;
-$secondary: #333333;
-$secondary-lighter: #929699;
+$default-dark: #333333;
+$default-dark-lighter: #929699;
+$border-color: #eee;
+
+$secondary: #ff9f52;
+$secondary-lighter: #efc458;
+$success-color: #00a08f;
+$alert-color: #f66747;
+$box-l-shadow: #ddd;
+$box-d-shadow: #666;
 
 $gap: 32px;
 $tablet: 769px;
@@ -28,3 +36,8 @@ $font-dark: #202224;
 $default-padding-btn: 12px 56px;
 $default-margin: 20px;
 $default-padding: 20px;
+$horizontal-padding: 0 20px;
+$page-padding: 20px 40px;
+
+$default-radius: 10px;
+$top-only-radius: 10px 10px 0 0;

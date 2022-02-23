@@ -1,29 +1,193 @@
-@import '@styles/colors.scss';
 @import '@styles/variables.scss';
 
 .tfe-default-layout {
   height: 100%;
+  background-color: #eee;
+  position: absolute;
+  width: 100%;
+
   .header {
-    padding: 0 10px;
+    padding: $horizontal-padding;
     display: flex;
     justify-content: space-between;
-    background-color: $primary-color;
+    background-color: $primary;
     box-shadow: 0 5px 5px $box-l-shadow;
     height: $header-height;
     align-items: center;
 
     .left-area {
+      display: flex;
+      align-items: center;
       .logo {
         width: 20px;
       }
+
+      .logo-name {
+        color: white;
+        font-weight: bold;
+        margin-left: 10px;
+        width: 110px;
+      }
+
+      .main-search-area {
+        position: relative;
+        width: 300px;
+
+        .search-results {
+          display: none;
+          position: absolute;
+          top: 36px;
+          left: 0px;
+          width: 380px;
+          z-index: 2;
+
+          ::v-deep(.n-card-header) {
+            padding: 10px 20px 20px;
+            font-size: 15px;
+          }
+
+          &.active {
+            display: flex;
+          }
+
+          .users-result {
+            display: flex;
+            flex-wrap: wrap;
+
+            .user-avatar-wrapper {
+              display: flex;
+              flex-direction: column;
+              min-width: 82px;
+              align-items: center;
+              text-align: center;
+              margin-top: 10px;
+
+              .displayname {
+                font-size: 14px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 75px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      color: white;
+      font-weight: 500;
+      margin-right: 20px;
     }
 
     .right-area {
       display: flex;
+      align-items: center;
 
-      .tfe-icon-button {
-        font-size: 25px;
-        color: $secondary-color;
+      .avatar-area {
+        position: relative;
+        margin-left: 30px;
+
+        .avatar-sub-menu {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 52px;
+          right: 0px;
+          width: 252px;
+          padding: 5px 10px;
+          background: white;
+          border: 1px solid $primary-light;
+          z-index: 2;
+          border-radius: 5px 0px 5px 5px;
+
+          a {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            color: $primary;
+            text-align: left;
+          }
+
+          .info-li {
+            display: flex;
+            flex-direction: column;
+
+            .basic-info {
+              display: flex;
+              align-items: center;
+              padding: 5px;
+
+              .tfe-avatar {
+                width: 56px;
+                height: 56px;
+              }
+
+              .display-name-username {
+                display: flex;
+                flex-direction: column;
+                margin-left: 5px;
+
+                font-size: 20px;
+
+                span {
+                  font-size: 12px;
+                  margin-top: -5px;
+                }
+              }
+            }
+
+            .badges {
+              display: flex;
+              justify-content: space-evenly;
+              margin-top: 20px;
+            }
+
+            .view-edit-button {
+              margin: 10px 5px 0;
+            }
+          }
+
+          .line-separator {
+            border-bottom: 1px solid #ddd;
+            height: 15px;
+            margin: 0 5px;
+          }
+        }
+
+        &.active {
+          .avatar-sub-menu {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    padding: $page-padding;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .main-content-overlay {
+      position: absolute;
+      display: block;
+      background-color: rgba(0, 0, 0, 0);
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      transition: background-color 0.5s ease;
+
+      &.active {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
       }
     }
   }

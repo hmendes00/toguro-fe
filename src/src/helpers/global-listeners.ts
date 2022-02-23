@@ -3,12 +3,14 @@ import { selfStore } from '@/store';
 import router from '@/router';
 
 // when events are {any} here is for custom events
-const loginUpdated = (event: any) => {
+const loginUpdated = async (event: any) => {
   if (event.detail && event.detail.accessToken) {
-    selfStore.dispatch(SET_LOGGED_IN, {
+    await selfStore.dispatch(SET_LOGGED_IN, {
       isLoggedIn: true,
+      accessToken: event.detail.accessToken,
       logoutFunction: event.detail.logoutFunction || function () {}
     });
+
     router.push(event.detail.redirectTo);
   }
 };
