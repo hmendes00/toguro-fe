@@ -159,20 +159,24 @@ export const SearchUsers = async (term: string, limit = 3): Promise<UserSearched
     return [];
   }
 
+  const decodedTerm = decodeURI(term);
+
   if (limit > 10) {
     limit = 10;
   }
   try {
+    const lastIndex = decodedTerm.includes('.') ? decodedTerm.lastIndexOf('.') : decodedTerm.length - 1;
+    const termToSearch = decodedTerm.substring(0, lastIndex);
     // the limit here seems to be based on indexes. that means the when limit = 3, it will bring 4. (0,1,2,3);
-    const searchResult = await mxClient.searchUserDirectory({ term: decodeURI(term), limit: 2 });
+    const searchResult = await mxClient.searchUserDirectory({ term: termToSearch, limit });
     let results = new Array<UserSearched>();
     if (!searchResult.results.length) {
-      const profile = await mxClient.getProfileInfo(term);
+      const profile = await mxClient.getProfileInfo(decodedTerm);
       if (profile) {
         results.push({
           avatar_url: profile.avatar_url,
           display_name: profile.displayname,
-          user_id: term
+          user_id: decodedTerm
         });
       }
     } else {
