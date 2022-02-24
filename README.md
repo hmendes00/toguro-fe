@@ -1,7 +1,12 @@
 # Toguro FE
 
-This project contains the frontend for the main Toguro platform
+This project contains the frontend for the main Toguro platform using [Matrix Js SDK](https://github.com/matrix-org/matrix-js-sdk)
 
+It includes the built `.es.js` of [Mx-Login-App](https://github.com/hmendes00/login-mx-app) for reference.
+
+You should be able to easily integrate any app created using [toguro-cli](https://github.com/hmendes00/toguro-cli). Feel free to create and share some app as well :)
+
+Toguro-cli + Apps + Toguro FE (this project) simplified architecture
 ![Architecture](https://i.ibb.co/BBbZPg4/Untitled-Artwork-5.png)
 
 ## Requirements
@@ -35,6 +40,8 @@ Then install the dependencies:
 ```bash
 npm install
 ```
+
+You might want to change the `VITE_MATRIX_URL` in the `.env` file to point to your own homeserver. o/
 
 ## How to run
 
